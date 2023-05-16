@@ -1,0 +1,101 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <style>.page {display: none;}</style>
+    <title>Funcionários</title>
+</head>
+<body class="bg-light">
+
+    <!-- conteúdo -->
+    <div class="container text-center mt-5">
+        <div class="shadow-lg rounded bg-white">
+
+            <!-- filtros -->
+            <div class="row">
+                <h2 class="my-2">Filtros</h2>
+                <form class="form-filter">
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="filter my-2 col">
+                                <label for="filter" class="fw-bold">Nome Completo</label>
+                                <br>
+                                <input type="text" class="mx-1 my-1 rounded border-1 text-center" name="pesquisa" placeholder="Insira o Nome">
+                                <br>
+                                <select id="NomeCompleto" class="rounded">
+                                    <option value="" disabled selected>Selecione...</option>
+                                    <option value="NAO_CONTEM">Não Contêm</option>
+                                    <option value="CONTEM">Contêm</option>
+                                    <option value="IGUAL">Igual</option>
+                                </select>
+                            </div>
+                            <div class="filter my-2 col">
+                                <label for="opcoes" class="fw-bold">Data de Nascimento</label>
+                                <br>
+                                <input type="text" class="mx-1 my-1 rounded border-1 text-center" id='dataInput' name="pesquisa" placeholder="Ano/mês/dia">
+                                <br>
+                                <select id="DataNascimento" class="rounded">
+                                    <option value="" disabled selected>Selecione...
+                                    <option value="MENOR_IGUAL">Menor Igual</option>
+                                    <option value="MENOR">Menor</option>
+                                    <option value="MAIOR_IGUAL">Maior Igual</option>
+                                    <option value="MAIOR">Maior</option>
+                                    <option value="DIFERENTE">Diferente</option>
+                                    <option value="IGUAL">Igual</option>
+                                </select>
+                            </div>
+                            <div class="filter my-2 col">
+                                <label for="opcoes" class="fw-bold">Salário</label>
+                                <br>
+                                <input type="text" class="mx-1 my-1 rounded border-1 text-center" name="pesquisa" placeholder="Insira o Salário">
+                                <br>
+                                <select id="Salario" class="rounded">
+                                    <option value="" disabled selected>Selecione...
+                                    <option value="MENOR_IGUAL">Menor Igual</option>
+                                    <option value="MENOR">Menor</option>
+                                    <option value="MAIOR_IGUAL">Maior Igual</option>
+                                    <option value="MAIOR">Maior</option>
+                                    <option value="DIFERENTE">Diferente</option>
+                                    <option value="IGUAL">Igual</option>
+                                </select>
+                            </div>
+                            <div class="filter my-2 col">
+                                <label for="opcoes" class="fw-bold" id="id">ID</label>
+                                <br>
+                                <input type="text" name="pesquisa" class="rounded border-1 w- text-center text-center" placeholder="Insira o ID">
+                            </div>
+                        </div>
+                        <div><input type="submit" class="btn btn-success" value="Filtrar"></div>
+                    </div>
+                </form>
+            </div>
+
+            <!-- tabela de funcionários -->
+            <div>
+                <h2 class="mt-3 text-center" id="titulo">Lista de Funcionários</h2>
+                <table class="text-center table mx-auto" name="funcionarios"></table>
+            </div>
+        </div>
+
+        <!-- paginador -->
+        <div id="pagination" class="text-center mt-3">
+            <button id="prevButton" class="rounded border-0 bg-success text-white">Anterior</button>
+            <span id="currentPage"></span>
+            <button id="nextButton" class="rounded border-0 bg-success text-white">Próximo</button>
+        </div>
+
+    <!-- fim do conteúdo -->
+    </div>
+
+    <!-- rodapé -->
+    <footer class="mt-4 fixed-bottom">
+        <p class="text-center">Desenvolvido por William Boehringer</p>
+    </footer>
+
+    <!-- script -->
+    <script src="interface.js"></script>
+    <script src="api.js"></script>
+</body>
+</html>
