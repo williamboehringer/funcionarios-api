@@ -67,7 +67,10 @@
                                 <input type="text" name="pesquisa" class="rounded border-1 w- text-center text-center" placeholder="Insira o ID">
                             </div>
                         </div>
-                        <div><input type="submit" class="btn btn-success" value="Filtrar"></div>
+                        <div>
+                            <input type="submit" class="btn btn-success d-inline" id="filtrar" value="Filtrar">
+                            <input type="submit" class="btn btn-success d-inline" id="limparFiltro" value="Limpar Filtros">
+                        </div>
                     </div>
                 </form>
             </div>
@@ -75,15 +78,18 @@
             <!-- tabela de funcionários -->
             <div>
                 <h2 class="mt-3 text-center" id="titulo">Lista de Funcionários</h2>
-                <table class="text-center table mx-auto" name="funcionarios"></table>
+                <table class="text-center table" name="funcionarios"></table>
             </div>
         </div>
 
         <!-- paginador -->
         <div id="pagination" class="text-center mt-3">
+            <button id="firstButton" class="rounded border-0 bg-success text-white">Primeiro</button>
             <button id="prevButton" class="rounded border-0 bg-success text-white">Anterior</button>
             <span id="currentPage"></span>
             <button id="nextButton" class="rounded border-0 bg-success text-white">Próximo</button>
+            <button id="lastButton" class="rounded border-0 bg-success text-white">Último</button>
+
         </div>
 
     <!-- fim do conteúdo -->
@@ -91,7 +97,7 @@
 
     <!-- rodapé -->
     <footer class="mt-4 fixed-bottom">
-        <p class="text-center">Desenvolvido por William Boehringer</p>
+        <p class="text-center ">Desenvolvido por William Boehringer</p>
     </footer>
 
     <!-- script -->

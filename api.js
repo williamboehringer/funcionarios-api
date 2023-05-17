@@ -5,27 +5,28 @@ const formFiltro = document.querySelector('.form-filter');
 // Filtra os funcionários na tabela através do formulário
 formFiltro.addEventListener('submit', e => {
     e.preventDefault();
-    let queryFiltro = '';
-    filtros.forEach(filtro => {
-
-        if(filtro.children[0].innerText == 'ID'){
-            if(filtro.children[2].value){
-            queryFiltro += `FILTRO=${filtro.children[0].id}&VALOR=${filtro.children[2].value}&`;
-            filtro.children[2].value = ''
+    if(e.submitter.id == 'filtrar'){
+        let queryFiltro = '';
+        filtros.forEach(filtro => {
+            if(filtro.children[0].innerText == 'ID'){
+                if(filtro.children[2].value){
+                queryFiltro += `FILTRO=${filtro.children[0].id}&VALOR=${filtro.children[2].value}&`;
+                };
+            } else {
+                if(filtro.children[4].value && filtro.children[2].value){
+                    queryFiltro += `FILTRO=${filtro.children[4].id}&VALOR=${filtro.children[2].value}&OPERADOR=${filtro.children[4].value}&`;
+                };
             };
-        } else {
-            if(filtro.children[4].value && filtro.children[2].value){
-                queryFiltro += `FILTRO=${filtro.children[4].id}&VALOR=${filtro.children[2].value}&OPERADOR=${filtro.children[4].value}&`;
-            };
-            filtro.children[2].value = '';
-            filtro.children[4].value = '';
-        };
-    });
+        });
+        filtraFuncionarios(queryFiltro);
 
-    filtraFuncionarios(queryFiltro);
+
+    } else {
+        limpaFiltro(filtros);
+    };
 });
 
 // Lista os funcionários na tabela ao carregar a página
 window.addEventListener('load', () => {
-    listaFuncionarios().then(() => paginador());
+    listaFuncionarios();
 });
