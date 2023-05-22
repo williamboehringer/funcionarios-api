@@ -31,7 +31,6 @@ function paginaAnterior() {
 
 // Função para o botão que ao clicado leva o usuário para a próxima página
 function proximaPagina() {
-    console.log(paginaAtual)
     if (paginaAtual < numeroTotalPaginas - 1) {
         paginador(paginaAtual + 1);
     }
